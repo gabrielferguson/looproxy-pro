@@ -1,15 +1,14 @@
-backend:
-    functions:
-        - entry: main.py
-          handler: handler
-          name: serverless
-          path: .
-          type: aws
-    language:
-        name: python
-        packageManager: pip
-        runtime: python3.13.x
-    path: .
 name: looproxy-pro
 region: us-east-1
 yamlVersion: 2
+backend:
+  path: ./
+  language:
+    name: python
+    packageManager: pip
+    runtime: python3.13.x
+  functions:
+    - entry: main.py
+      path: ./
+      handler: app
+      type: httpServer
